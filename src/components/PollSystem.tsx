@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle, Users, TrendingUp } from 'lucide-react';
+import { CheckCircle, Users, TrendingUp, RotateCcw } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface PollOption {
@@ -164,6 +164,19 @@ const PollSystem = () => {
     setVotedPolls(prev => new Set([...prev, pollId]));
   };
 
+  const handleReset = (pollId: string) => {
+    setSelectedOptions(prev => {
+      const updated = { ...prev };
+      delete updated[pollId];
+      return updated;
+    });
+    setVotedPolls(prev => {
+      const updated = new Set(prev);
+      updated.delete(pollId);
+      return updated;
+    });
+  };
+
   const getPercentage = (votes: number, total: number) => {
     return total > 0 ? Math.round((votes / total) * 100) : 0;
   };
@@ -181,13 +194,13 @@ const PollSystem = () => {
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Header */}
         <div className="text-center space-y-4 animate-fade-in">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl shadow-poll mb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl shadow-poll mb-4 animate-pulse">
             <TrendingUp className="w-8 h-8 text-primary-foreground" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-fade-in">
             Interview Poll System
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Participate in our interactive polls and see what the community thinks about key topics in software development.
           </p>
         </div>
@@ -295,10 +308,24 @@ const PollSystem = () => {
                 })}
                 
                 {!votedPolls.has(poll.id) && (
-                  <div className="mt-4 p-3 bg-accent/50 rounded-lg border border-accent">
+                  <div className="mt-4 p-3 bg-accent/50 rounded-lg border border-accent animate-fade-in">
                     <p className="text-sm text-accent-foreground text-center">
                       Click on an option to vote and see the results
                     </p>
+                  </div>
+                )}
+
+                {votedPolls.has(poll.id) && (
+                  <div className="mt-4 flex justify-center animate-scale-in" style={{ animationDelay: '0.5s' }}>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleReset(poll.id)}
+                      className="gap-2 hover:bg-destructive/10 hover:text-destructive hover:border-destructive transition-all duration-300"
+                    >
+                      <RotateCcw className="w-4 h-4" />
+                      Reset Vote
+                    </Button>
                   </div>
                 )}
               </CardContent>
@@ -307,7 +334,7 @@ const PollSystem = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center py-8">
+        <div className="text-center py-8 animate-fade-in" style={{ animationDelay: '1s' }}>
           <p className="text-muted-foreground">
             Thank you for participating in our polls! Your insights help shape our community.
           </p>

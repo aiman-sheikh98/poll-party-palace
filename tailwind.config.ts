@@ -68,6 +68,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			transitionProperty: {
+				'height': 'height',
+				'spacing': 'margin, padding',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -122,6 +126,14 @@ export default {
 				'progress': {
 					'0%': { width: '0%' },
 					'100%': { width: 'var(--progress-width)' }
+				},
+				'bounce-subtle': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-2px)' }
+				},
+				'glow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
 				}
 			},
 			animation: {
@@ -129,7 +141,9 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
 				'scale-in': 'scale-in 0.3s ease-out',
-				'progress': 'progress 1s ease-out forwards'
+				'progress': 'progress 1s ease-out forwards',
+				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite'
 			}
 		}
 	},
