@@ -41,6 +41,116 @@ const PollSystem = () => {
         { id: '2d', text: 'C++', votes: 15 }
       ],
       totalVotes: 190
+    },
+    {
+      id: '3',
+      question: 'What is your preferred development environment?',
+      options: [
+        { id: '3a', text: 'Visual Studio Code', votes: 89 },
+        { id: '3b', text: 'IntelliJ IDEA', votes: 43 },
+        { id: '3c', text: 'Sublime Text', votes: 18 },
+        { id: '3d', text: 'Vim/Neovim', votes: 22 }
+      ],
+      totalVotes: 172
+    },
+    {
+      id: '4',
+      question: 'Which database technology do you prefer for new projects?',
+      options: [
+        { id: '4a', text: 'PostgreSQL', votes: 67 },
+        { id: '4b', text: 'MongoDB', votes: 54 },
+        { id: '4c', text: 'MySQL', votes: 41 },
+        { id: '4d', text: 'SQLite', votes: 28 }
+      ],
+      totalVotes: 190
+    },
+    {
+      id: '5',
+      question: 'What is the biggest challenge in software development?',
+      options: [
+        { id: '5a', text: 'Managing technical debt', votes: 58 },
+        { id: '5b', text: 'Meeting deadlines', votes: 45 },
+        { id: '5c', text: 'Debugging complex issues', votes: 37 },
+        { id: '5d', text: 'Keeping up with new technologies', votes: 42 }
+      ],
+      totalVotes: 182
+    },
+    {
+      id: '6',
+      question: 'Which frontend framework/library do you prefer?',
+      options: [
+        { id: '6a', text: 'React', votes: 76 },
+        { id: '6b', text: 'Vue.js', votes: 34 },
+        { id: '6c', text: 'Angular', votes: 28 },
+        { id: '6d', text: 'Svelte', votes: 19 }
+      ],
+      totalVotes: 157
+    },
+    {
+      id: '7',
+      question: 'How do you prefer to learn new programming concepts?',
+      options: [
+        { id: '7a', text: 'Hands-on coding projects', votes: 72 },
+        { id: '7b', text: 'Online tutorials and courses', votes: 48 },
+        { id: '7c', text: 'Reading documentation', votes: 31 },
+        { id: '7d', text: 'Pair programming with others', votes: 25 }
+      ],
+      totalVotes: 176
+    },
+    {
+      id: '8',
+      question: 'What is your preferred method for code version control?',
+      options: [
+        { id: '8a', text: 'Git with GitHub', votes: 94 },
+        { id: '8b', text: 'Git with GitLab', votes: 32 },
+        { id: '8c', text: 'Git with Bitbucket', votes: 18 },
+        { id: '8d', text: 'Other VCS (SVN, Mercurial)', votes: 6 }
+      ],
+      totalVotes: 150
+    },
+    {
+      id: '9',
+      question: 'Which testing approach do you find most valuable?',
+      options: [
+        { id: '9a', text: 'Unit testing', votes: 63 },
+        { id: '9b', text: 'Integration testing', votes: 41 },
+        { id: '9c', text: 'End-to-end testing', votes: 35 },
+        { id: '9d', text: 'Manual testing', votes: 21 }
+      ],
+      totalVotes: 160
+    },
+    {
+      id: '10',
+      question: 'What motivates you most as a developer?',
+      options: [
+        { id: '10a', text: 'Solving complex problems', votes: 68 },
+        { id: '10b', text: 'Building products that help people', votes: 55 },
+        { id: '10c', text: 'Learning new technologies', votes: 43 },
+        { id: '10d', text: 'Working with a great team', votes: 39 }
+      ],
+      totalVotes: 205
+    },
+    {
+      id: '11',
+      question: 'Which deployment strategy do you prefer?',
+      options: [
+        { id: '11a', text: 'Continuous deployment (CD)', votes: 52 },
+        { id: '11b', text: 'Blue-green deployment', votes: 38 },
+        { id: '11c', text: 'Rolling deployment', votes: 29 },
+        { id: '11d', text: 'Manual deployment', votes: 16 }
+      ],
+      totalVotes: 135
+    },
+    {
+      id: '12',
+      question: 'What is your preferred approach to API development?',
+      options: [
+        { id: '12a', text: 'RESTful APIs', votes: 71 },
+        { id: '12b', text: 'GraphQL', votes: 44 },
+        { id: '12c', text: 'gRPC', votes: 23 },
+        { id: '12d', text: 'WebSocket APIs', votes: 18 }
+      ],
+      totalVotes: 156
     }
   ]);
 
