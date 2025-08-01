@@ -1,7 +1,7 @@
-import PollSystem from '@/components/PollSystem';
+import RealtimePollingSystem from '@/components/RealtimePollingSystem';
 
 const Index = () => {
-  return <PollSystem />;
+  return <RealtimePollingSystem />;
 };
 
 export default Index;
