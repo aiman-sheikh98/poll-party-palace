@@ -2,14 +2,13 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { GraduationCap, Users } from 'lucide-react';
-
 interface RoleSelectorProps {
   onSelectRole: (role: 'teacher' | 'student') => void;
 }
-
-const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
-  return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+const RoleSelector: React.FC<RoleSelectorProps> = ({
+  onSelectRole
+}) => {
+  return <div className="min-h-screen flex items-center justify-center p-4">
       <div className="w-full max-w-4xl">
         {/* Header */}
         <div className="text-center mb-8">
@@ -24,10 +23,7 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
         {/* Role Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Teacher Card */}
-          <Card 
-            className="glass-card hover:scale-105 transition-all duration-300 cursor-pointer group"
-            onClick={() => onSelectRole('teacher')}
-          >
+          <Card className="glass-card hover:scale-105 transition-all duration-300 cursor-pointer group" onClick={() => onSelectRole('teacher')}>
             <CardHeader className="text-center">
               <div className="mx-auto p-4 bg-primary/10 rounded-full w-fit group-hover:bg-primary/20 transition-colors duration-300">
                 <GraduationCap className="h-12 w-12 text-primary" />
@@ -63,12 +59,9 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
           </Card>
 
           {/* Student Card */}
-          <Card 
-            className="glass-card hover:scale-105 transition-all duration-300 cursor-pointer group"
-            onClick={() => onSelectRole('student')}
-          >
+          <Card className="glass-card hover:scale-105 transition-all duration-300 cursor-pointer group" onClick={() => onSelectRole('student')}>
             <CardHeader className="text-center">
-              <div className="mx-auto p-4 bg-secondary/10 rounded-full w-fit group-hover:bg-secondary/20 transition-colors duration-300">
+              <div className="mx-auto p-4 rounded-full w-fit transition-colors duration-300 bg-slate-300">
                 <Users className="h-12 w-12 text-secondary" />
               </div>
               <CardTitle className="text-2xl">Student</CardTitle>
@@ -124,8 +117,6 @@ const RoleSelector: React.FC<RoleSelectorProps> = ({ onSelectRole }) => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default RoleSelector;
