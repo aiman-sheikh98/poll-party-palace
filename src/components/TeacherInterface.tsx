@@ -4,10 +4,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
-import { Timer, Users, TrendingUp, Plus, X } from 'lucide-react';
+import { Timer, Users, TrendingUp, Plus, X, Home } from 'lucide-react';
 import { useRealtimePolling } from '@/hooks/useRealtimePolling';
+import { useNavigate } from 'react-router-dom';
 
 const TeacherInterface: React.FC = () => {
+  const navigate = useNavigate();
   const {
     currentPoll,
     students,
@@ -16,6 +18,7 @@ const TeacherInterface: React.FC = () => {
     pollResults,
     createPoll,
     endPoll,
+    setUserRole,
   } = useRealtimePolling();
 
   const [question, setQuestion] = useState('');
@@ -67,8 +70,35 @@ const TeacherInterface: React.FC = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
+  const handleBackToHome = () => {
+    setUserRole(null);
+    navigate('/');
+  };
+
   return (
     <div className="space-y-6">
+      {/* Navigation */}
+      <div className="flex items-center justify-between">
+        <Button 
+          variant="outline" 
+          onClick={handleBackToHome}
+          className="flex items-center gap-2"
+        >
+          <Home className="w-4 h-4" />
+          Back to Home
+        </Button>
+        {currentPoll?.is_active && (
+          <Button 
+            variant="destructive" 
+            onClick={handleEndPoll}
+            className="flex items-center gap-2"
+          >
+            <X className="w-4 h-4" />
+            Cancel Poll
+          </Button>
+        )}
+      </div>
+
       {/* Header */}
       <div className="text-center">
         <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">

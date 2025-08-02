@@ -27,7 +27,7 @@ import { cn } from '@/lib/utils';
 
 const navigationItems = [
   { title: 'Home', url: '/', icon: Home },
-  { title: 'Polls', url: '/', icon: BarChart3 },
+  { title: 'Polls', url: '/polls', icon: BarChart3 },
   { title: 'Analytics', url: '/analytics', icon: TrendingUp },
   { title: 'Community', url: '/community', icon: Users },
 ];

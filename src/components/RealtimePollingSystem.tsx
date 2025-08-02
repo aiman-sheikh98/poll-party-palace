@@ -3,9 +3,10 @@ import { useRealtimePolling } from '@/hooks/useRealtimePolling';
 import RoleSelector from './RoleSelector';
 import TeacherInterface from './TeacherInterface';
 import StudentInterface from './StudentInterface';
+import ChatPopup from './ChatPopup';
 
 const RealtimePollingSystem: React.FC = () => {
-  const { userRole, setUserRole } = useRealtimePolling();
+  const { userRole, setUserRole, studentName } = useRealtimePolling();
 
   const handleRoleSelect = (role: 'teacher' | 'student') => {
     setUserRole(role);
@@ -20,6 +21,10 @@ const RealtimePollingSystem: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {userRole === 'teacher' ? <TeacherInterface /> : <StudentInterface />}
       </div>
+      <ChatPopup 
+        userRole={userRole} 
+        userName={userRole === 'teacher' ? 'Teacher' : studentName} 
+      />
     </div>
   );
 };

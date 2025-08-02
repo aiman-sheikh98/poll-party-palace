@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { AppSidebar } from "@/components/AppSidebar";
 import Index from "./pages/Index";
+import Polls from "./pages/Polls";
+import Analytics from "./pages/Analytics";
+import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,8 +45,9 @@ const App = () => (
               <main className="flex-1 pt-12">
                 <Routes>
                   <Route path="/" element={<Index />} />
-                  <Route path="/analytics" element={<div className="p-8 text-center text-muted-foreground">Analytics coming soon...</div>} />
-                  <Route path="/community" element={<div className="p-8 text-center text-muted-foreground">Community features coming soon...</div>} />
+                  <Route path="/polls" element={<Polls />} />
+                  <Route path="/analytics" element={<Analytics />} />
+                  <Route path="/community" element={<Community />} />
                   <Route path="/settings" element={<div className="p-8 text-center text-muted-foreground">Settings coming soon...</div>} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />

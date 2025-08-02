@@ -5,10 +5,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Timer, CheckCircle, Clock, TrendingUp } from 'lucide-react';
+import { Timer, CheckCircle, Clock, TrendingUp, Home } from 'lucide-react';
 import { useRealtimePolling } from '@/hooks/useRealtimePolling';
+import { useNavigate } from 'react-router-dom';
 
 const StudentInterface: React.FC = () => {
+  const navigate = useNavigate();
   const {
     currentPoll,
     timeLeft,
@@ -17,6 +19,7 @@ const StudentInterface: React.FC = () => {
     pollResults,
     registerStudent,
     submitResponse,
+    setUserRole,
   } = useRealtimePolling();
 
   const [name, setName] = useState('');
@@ -50,6 +53,11 @@ const StudentInterface: React.FC = () => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  const handleBackToHome = () => {
+    setUserRole(null);
+    navigate('/');
   };
 
   // Registration form
@@ -90,6 +98,18 @@ const StudentInterface: React.FC = () => {
 
   return (
     <div className="space-y-6">
+      {/* Navigation */}
+      <div className="flex items-center justify-start">
+        <Button 
+          variant="outline" 
+          onClick={handleBackToHome}
+          className="flex items-center gap-2"
+        >
+          <Home className="w-4 h-4" />
+          Back to Home
+        </Button>
+      </div>
+
       {/* Header */}
       <div className="text-center">
         <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">

@@ -14,7 +14,119 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chat_messages: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          sender_name: string
+          sender_type: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          sender_name: string
+          sender_type: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          sender_name?: string
+          sender_type?: string
+        }
+        Relationships: []
+      }
+      poll_responses: {
+        Row: {
+          id: string
+          poll_id: string
+          selected_option: number
+          student_name: string
+          student_session_id: string
+          submitted_at: string
+        }
+        Insert: {
+          id?: string
+          poll_id: string
+          selected_option: number
+          student_name: string
+          student_session_id: string
+          submitted_at?: string
+        }
+        Update: {
+          id?: string
+          poll_id?: string
+          selected_option?: number
+          student_name?: string
+          student_session_id?: string
+          submitted_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "poll_responses_poll_id_fkey"
+            columns: ["poll_id"]
+            isOneToOne: false
+            referencedRelation: "polls"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      polls: {
+        Row: {
+          created_at: string
+          ends_at: string | null
+          id: string
+          is_active: boolean
+          options: Json
+          question: string
+          teacher_id: string
+          time_limit: number
+        }
+        Insert: {
+          created_at?: string
+          ends_at?: string | null
+          id?: string
+          is_active?: boolean
+          options: Json
+          question: string
+          teacher_id: string
+          time_limit?: number
+        }
+        Update: {
+          created_at?: string
+          ends_at?: string | null
+          id?: string
+          is_active?: boolean
+          options?: Json
+          question?: string
+          teacher_id?: string
+          time_limit?: number
+        }
+        Relationships: []
+      }
+      students: {
+        Row: {
+          id: string
+          joined_at: string
+          name: string
+          session_id: string
+        }
+        Insert: {
+          id?: string
+          joined_at?: string
+          name: string
+          session_id: string
+        }
+        Update: {
+          id?: string
+          joined_at?: string
+          name?: string
+          session_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
